@@ -392,7 +392,7 @@ module.exports = function transport( options ) {
 
       var data
       var standard = !!req.headers['seneca-id']
-
+      
       if( standard ) {
         data = {
           id:     req.headers['seneca-id'],
@@ -454,7 +454,7 @@ module.exports = function transport( options ) {
         if( iserror ) {
           httpcode = 500
         }
-
+        
         res.writeHead( httpcode, headers )
         res.end( outjson )
       })
@@ -502,7 +502,7 @@ module.exports = function transport( options ) {
             seneca,'send-track',data.track||[]),
           'seneca-time-client-sent': data.time.client_sent
         }
-
+        
         needle.post( 
           fullurl, 
           data.act, 
@@ -517,7 +517,7 @@ module.exports = function transport( options ) {
               res:   res && _.isObject(res.body) ? res.body : null,
               error: err
             }
-
+            
             if( res ) {
               data.id     = res.headers['seneca-id']
               data.origin = res.headers['seneca-origin']
@@ -846,13 +846,24 @@ module.exports = function transport( options ) {
     }
     track.push(seneca.id)
 
+    // TODO: whitelist instead of blacklist
+    var cleanedArgs = _.omit(args, [
+      'transport$',
+      'actid$',
+      'tx$',
+      'ungate$',
+      'meta$',
+      'plugin$',
+      'fatal$'
+    ])
+
     var output = {
       id:     args.actid$,
       kind:   'act',
       origin: seneca.id,
       track:  track,
       time:   { client_sent:Date.now() },
-      act:    seneca.util.clean(args),
+      act:    cleanedArgs,
     }
 
     return output;
@@ -900,6 +911,16 @@ module.exports = function transport( options ) {
       return respond(null);
     }
 
+    var context = {}
+    
+    for(var attr in data.act) {
+      if(/.*\$$/.test(attr)) {
+        context[attr] = data.act[attr]
+        delete data.act[attr]
+      }
+    }
+    var contextualSeneca = seneca.delegate(context)
+
     var output = prepare_response( seneca, data )
     var input  = handle_entity( data.act )
 
@@ -908,9 +929,9 @@ module.exports = function transport( options ) {
     }
 
     input.actid$ = data.id
-
+    
     try {
-      seneca.act( input, function( err, out ) {
+      contextualSeneca.act( input, function( err, out ) {
         update_output(input,output,err,out)
           
         respond(output)
