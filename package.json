@@ -20,9 +20,9 @@
   "license": "MIT",
   "dependencies": {
     "async": "~0.9.0",
-    "connect": "~3.0.2",
+    "connect": "~3.6.5",
     "connect-query": "~1.0.0",
-    "connect-timeout": "~1.5.0",
+    "connect-timeout": "~1.8.0",
     "gex": "~0.3.0",
     "jsonic": "~0.1.2",
     "lru-cache": "~2.5.0",
