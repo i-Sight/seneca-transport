@@ -20,17 +20,17 @@
   "license": "MIT",
   "dependencies": {
     "async": "~0.9.0",
-    "connect": "~3.0.2",
-    "connect-query": "~0.2.0",
-    "connect-timeout": "~1.5.0",
-    "gex": "~0.2.0",
+    "connect": "~3.6.5",
+    "connect-query": "~1.0.0",
+    "connect-timeout": "~1.8.0",
+    "gex": "~0.3.0",
     "jsonic": "~0.1.2",
     "lru-cache": "~2.5.0",
     "needle": "~0.7.11",
     "nid": "~0.3.2",
-    "patrun": "~0.4.3",
+    "patrun": "~1.0.0",
     "reconnect-net": "~0.0.0",
-    "lodash": "~2.4.1"
+    "lodash": "~4.17.12"
   },
   "files": [
     "README.md",
