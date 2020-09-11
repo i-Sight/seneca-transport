@@ -24,7 +24,7 @@
     "connect-query": "~0.2.0",
     "connect-timeout": "~1.5.0",
     "gex": "~0.2.0",
-    "jsonic": "~0.1.2",
+    "jsonic": "~1.0.1",
     "lru-cache": "~2.5.0",
     "needle": "~0.7.11",
     "nid": "~0.3.2",
