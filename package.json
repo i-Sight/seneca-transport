@@ -41,7 +41,7 @@
     "seneca": "plugin",
     "docco": "~0.7.0",
     "jshint": "~2.6.0",
-    "mocha": "~2.1.0",
+    "mocha": "~8.2.1",
     "seneca-transport-test": "~0.1.3"
   }
 }
