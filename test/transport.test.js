@@ -131,6 +131,7 @@ describe('transport', function () {
 			var a = require('seneca')({
 				timeout: 111,
 				default_plugins: no_t,
+				log: 'silent',
 			})
 				.use('../transport.js', {
 					check: {message_loop: false},
@@ -143,6 +144,7 @@ describe('transport', function () {
 			var b = require('seneca')({
 				timeout: 111,
 				default_plugins: no_t,
+				log: 'silent',
 			})
 				.use('../transport.js')
 				.add('b:1', b)
@@ -209,6 +211,7 @@ describe('transport', function () {
 			const aServer = require('seneca')({
 				timeout: 111,
 				default_plugins: no_t,
+				log: 'silent',
 			})
 				.use('../transport.js', {
 					check: {own_message: false},
@@ -224,6 +227,7 @@ describe('transport', function () {
 			const bServer = require('seneca')({
 				timeout: 111,
 				default_plugins: no_t,
+				log: 'silent',
 			})
 				.use('../transport.js')
 				.add('b:1', b)
@@ -236,6 +240,7 @@ describe('transport', function () {
 			const cServer = require('seneca')({
 				timeout: 111,
 				default_plugins: no_t,
+				log: 'silent',
 			})
 				.use('../transport.js')
 				.add('c:1', c)
