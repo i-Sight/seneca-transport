@@ -220,8 +220,7 @@ describe('transport', function () {
 				.add('a:1', a)
 				.listen({type, port: 40405});
 
-			var a = aServer
-				.client({type, port: 40406});
+			var a = aServer.client({type, port: 40406});
 
 
 			const bServer = require('seneca')({
@@ -233,8 +232,7 @@ describe('transport', function () {
 				.add('b:1', b)
 				.listen({type, port: 40407});
 
-			var b = bServer
-      	.client({type, port: 40408});
+			var b = bServer.client({type, port: 40408});
 
 
 			const cServer = require('seneca')({
@@ -246,8 +244,7 @@ describe('transport', function () {
 				.add('c:1', c)
 				.listen({type, port: 40409});
 
-			var c = cServer
-				.client({type, port: 40410});
+			var c = cServer.client({type, port: 40410});
 
 
 			a.ready(function (){
