@@ -1,6 +1,6 @@
 {
   "name": "seneca-transport",
-  "version": "0.6.8-caseiq",
+  "version": "0.6.9-caseiq",
   "description": "Seneca transport",
   "main": "transport.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "connect-query": "~1.0.0",
     "connect-timeout": "~1.9.0",
     "gex": "~0.3.0",
-    "jsonic": "~0.1.2",
+    "jsonic": "2.16.0",
     "lodash": "4.17.21",
     "lru-cache": "~2.5.0",
     "needle": "~0.7.11",
